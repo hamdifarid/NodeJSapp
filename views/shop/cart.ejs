@@ -6,19 +6,30 @@
 
             <main>
                 <%if(products.length> 0) {%>
-                    <ul>
+                    <ul class="cart__item-list">
                         <%products.forEach(p=>{ %>
-                            <li>
-                                <p>
-                                    <%= p.productData.title%> (<%=p.qty%>)
-                                </p>
+                            <li class="cart__item">
+                                <h1>
+                                    <%= p.title%> 
+                                </h1>
+                                <h2>
+                                    Quantity : <%=p.cartItem.quantity%>
+                                </h2>
                                 <form action="/cart/delete-item" method="post">
-                                    <button type="submit" class="btn">Delete</button>
-                                    <input type="hidden" value="<%=p.productData.id%>" name="productId">
+                                    <button type="submit" class="btn danger">Delete</button>
+                                    <input type="hidden" value="<%=p.id%>" name="productId">
+
                                 </form>
                             </li>
                             <% })%>
                     </ul>
+                    <hr>
+                    <div class="centered">
+                        <form action="/create-order" method="post">
+                            <button class="btn" type="submit">Check Out</button>
+                        </form>
+                    </div>
+
                     <%}else{%>
                         <h1>No product found in cart!</h1>
                         <%}%>

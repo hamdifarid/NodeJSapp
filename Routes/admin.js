@@ -3,14 +3,14 @@ const router = express.Router();
 const adminController = require('../controllers/admin');
 
 
-// Middleware get routes
+// // Middleware get routes
 router.get('/add-product', adminController.getAddProduct);
 
 router.get('/edit-product/:productId', adminController.getEditProduct);
 
 router.get('/products', adminController.getProductsAdmin);
 
-// Middleware post routes
+// // Middleware post routes
 
 router.post('/add-product', adminController.postAddProduct);
 
