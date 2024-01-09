@@ -49,6 +49,10 @@ function () {
       var db = getDb();
       db.collection('users').updateOne({
         _id: new mongoDb.ObjectId(this._id)
+      }, {
+        $set: {
+          cart: updatedCart
+        }
       });
     }
   }], [{
